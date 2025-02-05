@@ -18,11 +18,14 @@ const CalcButton = styled.button`
   height: 100px;
 `;
 
-function calc(event) {
-  console.log(event.target.value);
-}
-
 function App() {
+  const [number, setNumber] = useState("");
+
+  function calc(event) {
+    console.log(event.target.value);
+    setNumber(prevNumber=>String(prevNumber)+event.target.value)
+  }
+
   return (
     <>
       <Calculator>
@@ -36,7 +39,8 @@ function App() {
           </Row>
         ))}
       </Calculator>
-      <p>cos</p>
+      <p>Output Number</p>
+      <p>{number}</p>
     </>
   );
 }
